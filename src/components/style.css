@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.movies-list {
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* overflow: scroll; */
+  align-items: center;
+  
+  /* justify-content: center; */
+
+  /* grid-column: span 1; */
+  /* grid-row: span 14;  */
+  /* background-color: aliceblue; */
+  /* grid-template-columns: repeat(auto-fit, maxmin(100px, 1fr)); */
+  /* grid-template-rows: repeat(15, 1fr); */
+}
+
+.movie-card {
+  padding: 0.5rem;
+  /* width: %; */
+
+  /* margin: 0 auto; */
+  /* max-width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; */
+
+  img {
+    /* background-image: rgba(0, 0, 0, 0.384); */
+    cursor: pointer;
+    /* mask-image:  */
+    /* mask-image: linear-gradient(rgb(0, 0, 0), transparent); */
+    a:hover {
+      mask-image: linear-gradient(rgb(0, 0, 0), transparent);
+    }
+    /* background-image: rgb(0, 0, 0);
+        background-position: 1rem;
+    } */
+  }
+}
+
+li {
+  list-style: none;
+}
