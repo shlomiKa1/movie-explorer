@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { useMoviesStore } from "../store/MoviesStore";
 import {
@@ -9,8 +9,12 @@ import {
 import MovieDetailsPage from "../components/MovieDetailsPage";
 
 const MovieDetails = () => {
+  const navigate = useNavigate();
+  const toggleBack = () => {
+    navigate("/movies");
+  };
+
   const { id } = useParams();
-  console.log("id from params:", id);
 
   const movieFromStore = useMoviesStore((state) =>
     state.getMovieById(Number(id)),
@@ -29,6 +33,7 @@ const MovieDetails = () => {
 
   return (
     <section>
+      <button onClick={toggleBack}>🔙</button>
       <MovieDetailsPage movie={movie} />
     </section>
   );
