@@ -4,11 +4,13 @@ import MovieCard from "./MovieCard";
 const MovieList = ({ movies }: MoviesProp) => {
   return (
     <div>
-      {movies.map((movie) => (
-        <li key={movie.id}>
-          <MovieCard {...movie} />
-        </li>
-      ))}
+      <section className="movies-list">
+        {movies.map((movie) => (
+          <li key={movie.id}>
+            <MovieCard {...movie} />
+          </li>
+        ))}
+      </section>
     </div>
   );
 };
