@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 
-export function useFetch<T>(url: string) {
+export function useFetch<T>(url: string, isLoading: boolean = true) {
   const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(isLoading);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!isLoading) {
+      setLoading(false);
+      return;
+    }
+
+    let isCancelled = false;
     setLoading(true);
     setError(null);
 
@@ -16,10 +22,18 @@ export function useFetch<T>(url: string) {
         }
         return res.json();
       })
-      .then((data) => setData(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, [url]);
+      .then((data) => {
+        if (!isCancelled) setData(data);
+      })
+      .catch((err) => {
+        if (!isCancelled) setError(err.message);
+      })
+      .finally(() => {
+        if (!isCancelled) setLoading(false);
+      });
+
+      return () => {isCancelled = true}
+  }, [url, isLoading]);
 
   return { data, loading, error };
 }
