@@ -1,17 +1,70 @@
-interface ImageProp {
-  medium: string;
-  orginal: string;
+export interface MoviesProp {
+  movies: Movie[];
 }
 
-export interface MovieProp {
+export interface SearchBarProp {
+  search: string;
+  onSearch: (value: string) => void;
+}
+
+export interface TvmazeShowRaw {
   id: number;
   name: string;
-  language: string;
-  image: ImageProp;
-  summary: string;
-  geners?: string[];
+  summary: string | null;
+  geners: string[];
+  status: string;
+  premiered: string | null;
+  rating: {
+    average: number | null;
+  };
+  image: {
+    medium: string;
+    original: string;
+  } | null;
 }
 
-export interface MoviesProp {
-  movies: MovieProp[];
+export interface Movie {
+  id: number;
+  title: string;
+  description: string;
+  poster: string | null;
+  rating: number;
+  releaseYear: number;
+  geners: string[];
+  status: string;
+  isFavorite: boolean;
+}
+
+export interface MovieProps {
+  movie: Movie;
+}
+
+export function mapTvmazeShowToInternal(raw: TvmazeShowRaw): Movie {
+  return {
+    id: raw.id,
+    title: raw.name,
+    description: raw.summary ? raw.summary : "<h1>Empty summary</h1>",
+    poster: raw.image ? raw.image.medium : null,
+    rating: raw.rating.average ?? 0,
+    releaseYear: raw.premiered ? new Date(raw.premiered).getFullYear() : 0,
+    geners: raw.geners,
+    status: raw.status,
+    isFavorite: false,
+  };
+}
+
+export const BASE_URL = "https://api.tvmaze.com/shows";
+
+export interface FavoritesStore {
+  favorites: Movie[];
+  addFavorite: (movie: Movie) => void;
+  removeFavorite: (id: number) => void;
+  isFavorite: (id: number) => boolean;
+}
+
+export interface MoviesStore {
+  movies: Movie[];
+  setMovies: (movies: Movie[]) => void;
+  getMovieById: (id: number) => Movie | undefined;
+  // getFavorites: () => Movie[] | [];
 }
