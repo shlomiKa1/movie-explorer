@@ -11,7 +11,7 @@ export interface TvmazeShowRaw {
   id: number;
   name: string;
   summary: string | null;
-  geners: string[];
+  genres: string[];
   status: string;
   premiered: string | null;
   rating: {
@@ -30,9 +30,8 @@ export interface Movie {
   poster: string | null;
   rating: number;
   releaseYear: number;
-  geners: string[];
+  genres: string[];
   status: string;
-  isFavorite: boolean;
 }
 
 export interface MovieProps {
@@ -47,9 +46,8 @@ export function mapTvmazeShowToInternal(raw: TvmazeShowRaw): Movie {
     poster: raw.image ? raw.image.medium : null,
     rating: raw.rating.average ?? 0,
     releaseYear: raw.premiered ? new Date(raw.premiered).getFullYear() : 0,
-    geners: raw.geners,
+    genres: raw.geners,
     status: raw.status,
-    isFavorite: false,
   };
 }
 
@@ -66,5 +64,4 @@ export interface MoviesStore {
   movies: Movie[];
   setMovies: (movies: Movie[]) => void;
   getMovieById: (id: number) => Movie | undefined;
-  // getFavorites: () => Movie[] | [];
 }

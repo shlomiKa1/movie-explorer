@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useFavoritesStore } from "../store/FavoritesStore";
 
 const Header = () => {
@@ -7,13 +7,27 @@ const Header = () => {
   return (
     <header>
       <nav className="navbar">
-        <p>🍿🎬 Movie Explorer</p>
-        <Link to="/movies" className="link">
+        <p className="logo">
+          🍿🎬 Movie <span>Explorer</span>
+        </p>
+        <NavLink
+          to="/movies"
+          end
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+        >
           Movies
-        </Link>
-        <Link to="/movies/favorites" className="link">
+        </NavLink>
+
+        <NavLink
+          to="/movies/favorites"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+        >
           Favorites ({favorites.length})
-        </Link>
+        </NavLink>
       </nav>
     </header>
   );

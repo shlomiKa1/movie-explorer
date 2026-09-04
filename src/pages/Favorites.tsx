@@ -5,12 +5,17 @@ const Favorites = () => {
   const favorites = useFavoritesStore((state) => state.favorites);
 
   if (favorites.length === 0) {
-    return <p>You don't have movies in your list</p>;
+    return (
+      <div>
+        <span className="marquee-font">Is empty</span>
+        You don't have movies in your list
+      </div>
+    );
   }
 
   return (
     <div>
-      <h1>My Favorites Movies</h1>
+      <h1 className="section-title">My Favorites</h1>
       <MovieList movies={favorites} />
     </div>
   );

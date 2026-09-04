@@ -9,3 +9,22 @@ body {
   padding: 2rem;
   border-bottom: 1px solid white;
 }
+
+a {
+  text-decoration: none;
+}
+.active {
+  border-bottom: 1px solid;
+}
+
+
+/* img {
+  overflow: hidden;
+} */
+a:hover {
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.226)); */
+  /* mask-image: linear-gradient(rgba(64, 63, 63, 0.274)); */
+  /* shape-image-threshold: black ; */
+
+
+}

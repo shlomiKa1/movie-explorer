@@ -14,18 +14,41 @@ const MovieDetailsPage = ({ movie }: MovieProps) => {
       addFavorite(movie);
     }
   }
+
   return (
-    <article className="detail-movie">
+    <article className="details-mock">
       <img src={movie.poster ?? "/placeholder.jpg"} alt={movie.title} />
 
       <div>
-        <h1>{movie.title}</h1>
-        <span dangerouslySetInnerHTML={{ __html: movie.description }} />
+        <h1 className="details-title">{movie.title}</h1>
+        {/* <div className="detailes-tags">
+          {movie.geners.map((g) => (
+            <span className="tag" key={g}>
+              {g}
+            </span>
+          ))}
+          <span className="tag">{movie.releaseYear}</span>
+        </div> */}
+        <div className="details-tags">
+          {(movie.genres ?? []).map((tag) => (
+            <span className="tag" key={tag}>
+              {tag}
+            </span>
+          ))}
+          <span className="tag">{movie.releaseYear}</span>
+        </div>
 
-        <div className="d">
-          <p>Release: {movie.releaseYear}</p>
-          <p>Rating: {movie.rating}</p>
-          <button onClick={toggleFavorite}>{isFavorite ? "❤️" : "🤍"}</button>
+        <span
+          className="details-desc"
+          dangerouslySetInnerHTML={{ __html: movie.description }}
+        />
+
+        <div className="details-actions">
+          <button className="btn-primary" onClick={toggleFavorite}>
+            {isFavorite ? "❤️" : "🤍"}
+          </button>
+
+          <span className="rating-pill"> {movie.rating.toFixed(1)}</span>
         </div>
       </div>
     </article>
