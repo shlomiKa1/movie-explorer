@@ -46,7 +46,7 @@ export function mapTvmazeShowToInternal(raw: TvmazeShowRaw): Movie {
     poster: raw.image ? raw.image.medium : null,
     rating: raw.rating.average ?? 0,
     releaseYear: raw.premiered ? new Date(raw.premiered).getFullYear() : 0,
-    genres: raw.geners,
+    genres: raw.genres,
     status: raw.status,
   };
 }
