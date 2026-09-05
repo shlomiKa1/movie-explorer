@@ -1,12 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Movies from "./pages/Movies";
-import "./components/style.css";
-// import Header from "./components/Header";
 import Favorites from "./pages/Favorites";
 import NotFoundPage from "./pages/NotFoundPage";
 import MovieDetails from "./pages/MovieDetails";
 import MainLayout from "./layout/MainLayout";
+import "./components/styles/style.css";
+import "./App.css";
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
-      {/* <Movies /> */}
     </>
   );
 }
