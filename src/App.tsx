@@ -4,8 +4,8 @@ import Favorites from "./pages/Favorites";
 import NotFoundPage from "./pages/NotFoundPage";
 import MovieDetails from "./pages/MovieDetails";
 import MainLayout from "./layout/MainLayout";
-import Protected from "./layout/protected";
-import LoginPage from "./pages/LoginPage";
+import Protected from "./layout/Protected";
+import LoginPage from "./components/LoginPage";
 import "./components/styles/style.css";
 import "./App.css";
 
