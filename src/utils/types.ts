@@ -71,3 +71,5 @@ export interface MoviesStore {
   setMovies: (movies: Movie[]) => void;
   getMovieById: (id: number) => Movie | undefined;
 }
+
+export const KEY_USER = "user";

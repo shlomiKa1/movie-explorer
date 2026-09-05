@@ -1,8 +1,8 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { USER } from "../utils/types";
+import { KEY_USER } from "../utils/types";
 
 const Protected = () => {
-  const user = localStorage.getItem(USER);
+  const user = localStorage.getItem(KEY_USER);
   const location = useLocation();
 
   if (!user) {
