@@ -1,8 +1,14 @@
-export interface MoviesProp {
+export interface MoviesProps {
   movies: Movie[];
+  isFavorites?: boolean;
 }
 
-export interface SearchBarProp {
+export type MovieCardProps = {
+  movie: Movie;
+  isFavorites?: boolean;
+};
+
+export interface SearchBarProps {
   search: string;
   onSearch: (value: string) => void;
 }
