@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useFavoritesStore } from "../store/FavoritesStore";
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <nav className="navbar">
         <p className="logo">
-          🍿🎬 Movie <span>Explorer</span>
+          🎬 Movie <span>Explorer</span> 🍿
         </p>
         <NavLink
           to="/movies"
