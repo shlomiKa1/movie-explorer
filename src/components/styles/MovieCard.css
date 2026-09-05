@@ -1,0 +1,112 @@
+.movie-card {
+  background: var(--paper);
+  border-radius: 6px;
+  overflow: hidden;
+  color: var(--ink);
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem;
+}
+
+.img-container {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.ticket-poster {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease-in;
+}
+
+.img-container:hover {
+  img {
+    transform: scale(1.2);
+  }
+}
+.hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 20, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    transform 0.4s ease;
+  color: var(--paper-dim);
+  font-size: large;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  padding: 12px;
+}
+
+.img-container:hover .hover-overlay {
+  opacity: 1;
+}
+
+.remove-fav-btn {
+  background: var(--velvet);
+  color: var(--paper-dim);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.7em;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.perforation {
+  height: 14px;
+  background: var(--paper);
+  position: relative;
+}
+
+.perforation::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background-image: radial-gradient(
+    circle 7px,
+    var(--bg-cinema) 7px,
+    transparent 7.5px
+  );
+  background-size: 24px 14px;
+  background-repeat: repeat-x;
+}
+
+.ticket-body {
+  padding: 12px 14px 16px;
+  border-top: 1px dashed rgba(26, 26, 31, 0.25);
+}
+.ticket-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+.ticket-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.rating-pill {
+  background: var(--velvet);
+  color: var(--paper);
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12px;
+}

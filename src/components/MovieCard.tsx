@@ -38,7 +38,6 @@ const MovieCard = ({ movie, isFavorites }: MovieCardProps) => {
           </div>
         </div>
 
-        {/* <div className="perforation"></div> */}
         <div className="ticket-body">
           <p className="ticket-title">{movie.title}</p>
           <div className="ticket-meta">

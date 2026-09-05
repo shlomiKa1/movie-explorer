@@ -1,0 +1,71 @@
+:root {
+  --bg-cinema: #1a1a1f;
+  --bg-cinema-deep: #111114;
+  --gold: #e8b34a;
+  --gold-dim: #b8873a;
+  --velvet: #8b1e3f;
+  --paper: #29013e70;
+  --paper-dim: #e8dfc9;
+  /* --paper: #f5f5e6; */
+  /*--paper-dim: #e8dfc9; */
+  --ink: #1a1a1f;
+  --ink-soft: #4a453e;
+
+  --bg: var(--bg-cinema);
+  --text: var(--paper-dim);
+  --text-h: var(--paper-dim);
+  --border: rgba(232, 179, 74, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+#root {
+  background: var(--bg-cinema) !important;
+  color: var(--paper-dim);
+  font-family: "Inter", sans-serif;
+  text-align: initial !important;
+}
+
+.movies-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+li {
+  list-style: none;
+}
+
+.marquee-font {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.section-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 34px;
+  color: var(--paper-dim);
+  margin: 24px 40px 20px;
+  justify-self: center;
+  border-bottom: 1px solid var(--paper-dim);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--paper-dim);
+  border: 1px dashed rgba(232, 179, 74, 0.3);
+  border-radius: 10px;
+}
+.empty-state .marquee-font {
+  font-size: 30px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 8px;
+}
