@@ -6,7 +6,7 @@ const Favorites = () => {
 
   if (favorites.length === 0) {
     return (
-      <div>
+      <div className="empty-state">
         <span className="marquee-font">Is empty</span>
         You don't have movies in your list
       </div>
@@ -16,7 +16,7 @@ const Favorites = () => {
   return (
     <div>
       <h1 className="section-title">My Favorites</h1>
-      <MovieList movies={favorites} />
+      <MovieList movies={favorites} isFavorites={true} />
     </div>
   );
 };
