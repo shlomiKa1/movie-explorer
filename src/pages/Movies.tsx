@@ -33,8 +33,11 @@ const Movies = () => {
 
   return (
     <div className="header">
-      <SearchBar search={search} onSearch={setSearch} />
-      <MovieList movies={filteredMovies} />
+      <main>
+        <h1 className="section-title">Discover Movies</h1>
+        <SearchBar search={search} onSearch={setSearch} />
+        <MovieList movies={filteredMovies} />
+      </main>
     </div>
   );
 };
