@@ -15,6 +15,16 @@
   --text: var(--paper-dim);
   --text-h: var(--paper-dim);
   --border: rgba(232, 179, 74, 0.25);
+
+  --border-sm: 1px;
+  --gap-sm-l: 4px;
+  --gap-sm: 8px;
+  --gap-md: 14px;
+  --gap-lg: 24px;
+  --gap-lg-x: 32px;
+  --gap-lg-xx: 40px;
+  --radius: 6px;
+  --radius-pill: 999px;
 }
 
 * {
@@ -59,12 +69,12 @@ li {
   text-align: center;
   padding: 60px 20px;
   color: var(--paper-dim);
-  border: 1px dashed rgba(232, 179, 74, 0.3);
+  border: 1px dashed var(--border);
   border-radius: 10px;
 }
 .empty-state .marquee-font {
   font-size: 30px;
   color: var(--gold);
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: var(--gap-sm);
 }

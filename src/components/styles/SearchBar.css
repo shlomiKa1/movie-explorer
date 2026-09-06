@@ -1,16 +1,16 @@
 .search-box {
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(232, 179, 74, 0.3);
-  border-radius: 999px;
-  padding: 8px 18px;
+  border: var(--border-sm) solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: var(--gap-sm) var(--gap-md);
   color: var(--paper-dim);
   font-family: "Inter", sans-serif;
-  font-size: 14px;
+  font-size: var(--gap-md);
   width: 220px;
 }
 
 .search-movie {
-  padding: 2rem;
+  padding: var(--gap-md);
   justify-self: center;
 }
 

@@ -1,11 +1,11 @@
 .movie-card {
   background: var(--paper);
-  border-radius: 6px;
+  border-radius: var(--radius);
   overflow: hidden;
   color: var(--ink);
   cursor: pointer;
   position: relative;
-  padding: 0.5rem;
+  padding: var(--gap-sm);
 }
 
 .img-container {
@@ -34,7 +34,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: var(--gap-sm);
   opacity: 0;
   transition:
     opacity 0.25s ease,
@@ -44,7 +44,7 @@
   font-weight: 700;
   letter-spacing: 0.05rem;
   text-align: center;
-  padding: 12px;
+  padding: var(--gap-sm);
 }
 
 .img-container:hover .hover-overlay {
@@ -55,39 +55,16 @@
   background: var(--velvet);
   color: var(--paper-dim);
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
+  padding: var(--gap-sm) var(--gap-sm);
+  border-radius: var(--radius-pill);
   font-size: 0.7em;
   font-weight: 700;
-
   cursor: pointer;
 }
 
-.perforation {
-  height: 14px;
-  background: var(--paper);
-  position: relative;
-}
-
-.perforation::before {
-  content: "";
-  position: absolute;
-  top: -7px;
-  left: 0;
-  right: 0;
-  height: 14px;
-  background-image: radial-gradient(
-    circle 7px,
-    var(--bg-cinema) 7px,
-    transparent 7.5px
-  );
-  background-size: 24px 14px;
-  background-repeat: repeat-x;
-}
-
 .ticket-body {
-  padding: 12px 14px 16px;
-  border-top: 1px dashed rgba(26, 26, 31, 0.25);
+  padding: var(--gap-sm) var(--gap-md) var(--gap-md);
+  /* border-top: var(--border-sm) dashed rgba(228, 228, 233, 0.25); */
 }
 .ticket-title {
   font-weight: 700;
@@ -100,13 +77,12 @@
   align-items: center;
   justify-content: space-between;
   font-size: 12.5px;
-  color: var(--ink-soft);
 }
 .rating-pill {
   background: var(--velvet);
   color: var(--paper);
   padding: 2px 9px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--gap-md);
 }

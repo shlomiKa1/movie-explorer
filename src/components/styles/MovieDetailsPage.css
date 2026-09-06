@@ -1,21 +1,21 @@
 .details-mock {
   display: grid;
   grid-template-columns: 260px 1fr;
-  gap: 3rem;
+  gap: var(--gap-lg-xx);
   background: var(--bg-cinema-deep);
-  border: 1px solid rgba(232, 179, 74, 0.2);
-  border-radius: 10px;
-  padding: 32px;
-  margin: 24px 40px;
+  border: var(--border-sm) solid var(--border);
+  border-radius: var(--gap-sm);
+  padding: var(--gap-lg-x);
+  margin: var(--gap-lg);
 
   h1 {
     justify-self: center;
-    border-bottom: 1px solid var(--gold);
+    border-bottom: var(--border-sm) solid var(--gold-dim);
   }
 }
 .details-mock img {
   width: 100%;
-  border-radius: 6px;
+  border-radius: var(--radius);
   aspect-ratio: 2/3;
   object-fit: cover;
 }
@@ -23,42 +23,41 @@
   font-family: "Bebas Neue", sans-serif;
   font-size: 48px;
   color: var(--paper-dim);
-  margin: 0 0 6px;
+  margin: 0 0 var(--radius);
   padding: 1rem;
 }
 .details-tags {
   padding-top: 1rem;
   display: flex;
-  gap: 8px;
-  margin-bottom: 18px;
+  gap: var(--gap-sm);
+  margin-bottom: var(--gap-md);
   flex-wrap: wrap;
 }
 .tag {
-  border: 1px solid var(--gold-dim);
+  border: var(--border-sm) solid var(--gold-dim);
   color: var(--gold);
   font-size: 12.5px;
-  padding: 4px 12px;
-  border-radius: 999px;
+  padding: var(--gap-sm-l) var(--gap-md);
+  border-radius: var(--radius-pill);
 }
 .details-desc {
   color: var(--paper-dim);
   line-height: 1.7;
   font-size: 15px;
   max-width: 560px;
-  margin-bottom: 24px;
+  margin-bottom: var(--gap-lg);
   display: block;
 }
 .details-actions {
   display: flex;
-  /* align-items: center; */
-  gap: 14px;
+  gap: var(--gap-md);
 }
 .btn-primary {
   background: var(--gold);
   color: var(--ink);
   border: none;
-  padding: 12px 26px;
-  border-radius: 999px;
+  padding: var(--gap-md) var(--gap-lg);
+  border-radius: var(--radius-pill);
   font-weight: 700;
   font-size: 20px;
   cursor: pointer;
@@ -74,11 +73,11 @@
 .btn-ghost {
   background: transparent;
   color: var(--paper-dim);
-  border: 1px solid rgba(245, 240, 230, 0.3);
-  padding: 12px 26px;
-  border-radius: 999px;
+  border: var(--border-sm) solid rgba(245, 240, 230, 0.3);
+  padding: var(--gap-md) var(--gap-lg);
+  border-radius: var(--radius-pill);
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--gap-md);
   cursor: pointer;
 }
 .img-details {
