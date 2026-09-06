@@ -42,7 +42,9 @@ const MovieCard = ({ movie, isFavorites }: MovieCardProps) => {
           <p className="ticket-title">{movie.title}</p>
           <div className="ticket-meta">
             <span>{movie.releaseYear || "-"}</span>
-            <span className="rating-pill">★ {movie.rating.toFixed(1)}</span>
+            <span className={movie.rating ? "rating-pill" : ""}>
+              {movie.rating ? `★ ${movie.rating.toFixed(1)}` : ""}
+            </span>
           </div>
         </div>
       </Link>

@@ -25,7 +25,9 @@ const MovieDetailsPage = ({ movie }: MovieProps) => {
     <article className="details-mock">
       <div className="img-details">
         <img src={movie.poster ?? "/placeholder.jpg"} alt={movie.title} />
-        <span className="rating-pill">★ {movie.rating.toFixed(1)}</span>
+        <span className={movie.rating ? "rating-pill" : ""}>
+          {movie.rating ? `★ ${movie.rating.toFixed(1)}` : ""}
+        </span>
       </div>
 
       <div>

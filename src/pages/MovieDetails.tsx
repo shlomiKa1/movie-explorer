@@ -23,7 +23,7 @@ const MovieDetails = () => {
 
   const movie = movieFromStore ?? (data ? mapTvmazeShowToInternal(data) : null);
   if (!movieFromStore && loading) return <p>Loading data...</p>;
-  if (!movieFromStore && error) return <p>404 {error}</p>;
+  if (!movieFromStore && error) return <p>{error}</p>;
   if (!movie) return <p>Movie not found 404</p>;
 
   return (
