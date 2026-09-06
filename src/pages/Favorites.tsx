@@ -7,8 +7,8 @@ const Favorites = () => {
   if (favorites.length === 0) {
     return (
       <div className="empty-state">
-        <span className="marquee-font">Is empty</span>
-        You don't have movies in your list
+        <span className="marquee-font">Your watchlist is empty.</span>
+        Tab ❤️ to add your first movie.
       </div>
     );
   }
