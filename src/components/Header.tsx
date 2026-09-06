@@ -1,9 +1,19 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useFavoritesStore } from "../store/FavoritesStore";
+import { useState } from "react";
+import type { ThemeContextProps } from "../utils/types";
+import ThemeToggle from "./ThemeToggle";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Header = () => {
   const favorites = useFavoritesStore((state) => state.favorites);
   const navigate = useNavigate();
+  const [theme, setTheme] = useState<ThemeContextProps["theme"]>("light");
+
+  function toggleTheme() {
+    localStorage.setItem("theme", theme);
+    setTheme((t) => (t === "light" ? "dark" : "light"));
+  }
 
   function handleLogOut() {
     localStorage.removeItem("user");
@@ -39,6 +49,9 @@ const Header = () => {
           <button className="btn-ghost" onClick={handleLogOut}>
             Log Out
           </button>
+          <ThemeContext value={{ theme, toggleTheme }}>
+            <ThemeToggle />
+          </ThemeContext>
         </div>
       </nav>
     </header>

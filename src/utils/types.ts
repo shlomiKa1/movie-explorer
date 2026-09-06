@@ -73,3 +73,8 @@ export interface MoviesStore {
 }
 
 export const KEY_USER = "user";
+
+export interface ThemeContextProps {
+  theme: "light" | "dark";
+  toggleTheme: () => void;
+}
