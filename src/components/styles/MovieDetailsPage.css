@@ -63,6 +63,10 @@
   cursor: pointer;
 }
 
+.btn-primary:hover {
+  background: var(--gold-dim);
+  transition: all 0.5s;
+}
 .rating-pill {
   background-color: var(vilent);
   color: var(--gold);
@@ -80,10 +84,16 @@
   font-size: var(--gap-md);
   cursor: pointer;
 }
+
+.btn-ghost:hover {
+  background-color: var(--velvet);
+  transition: background-color 1s;
+}
+
 .img-details {
-  padding-top: 2.4rem;
+  padding-top: var(--gap-lg-x);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--gap-sm);
   align-self: center;
 }
