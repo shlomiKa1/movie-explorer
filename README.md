@@ -1,78 +1,76 @@
-# React + TypeScript + Vite
+# 🎬 Movie Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+אתר React לסקירה של סדרות וסרטים, המבוסס על ה- API של TVmaze
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ תכונות עיקריות
 
-## React Compiler
+- חיפוש וסינון סדרות בזמן אמת
+- הוספה/הסרה ממועדפים, נשמר לצמיתות (localStorage דרך Zustand persist)
+- עמוד פרטים מלא לכל סדרה
+- מסך התחברות בסיסי — עמודי האתר מוגנים מאחורי Route Guard
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## איך מריצים
 
-## Expanding the ESLint configuration
+התקנה
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone https://github.com/shlomiKa1/movie-explorer.git
+cd movie-explorer
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+הרצה
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
 
+# מבנה התיקייה
+
+```
+movie-explorer/
+├── src/
+│ ├── components/ # קומפוננטות UI לשימוש חוזר
+│ │ ├── Header.tsx
+│ │ ├── Footer.tsx
+│ │ ├── LoginPage.tsx
+│ │ ├── MovieCard.tsx
+│ │ ├── MovieDetailsPage.tsx
+│ │ ├── MovieList.tsx
+│ │ ├── SearchBar.tsx
+│ │ └── styles/ # קבצי CSS לכל קומפוננטה
+│ │
+│ ├── pages/ # עמודים שמחוברים ל-Routes
+│ │ ├── Movies.tsx # רשימת הסדרות הראשית
+│ │ ├── MovieDetails.tsx # עמוד פרטי סדרה בודדת
+│ │ ├── Favorites.tsx # עמוד המועדפים
+│ │ └── NotFoundPage.tsx # דף 404
+│ │
+│ ├── layout/ # מבנה עטיפה כללי לאתר
+│ │ ├── MainLayout.tsx # Header + Outlet + Footer לכל העמודים
+│ │ ├── Protected.tsx # Route Guard להתחברות
+│ │ └── style.css
+│ │
+│ ├── store/ # ניהול state גלובלי (Zustand)
+│ │ ├── FavoritesStore.tsx # מועדפים + שמירה ב-localStorage
+│ │ └── MoviesStore.tsx # Caching לרשימת הסדרות שנטענה
+│ │
+│ ├── hooks/
+│ │ └── useFetch.ts # Hook גנרי לשליפת נתונים מה-API
+│ │
+│ ├── utils/
+│ │ └── types.ts # כל ה-Interfaces + מיפוי TVmaze → מבנה פנימי
+│ │
+│ ├── App.tsx # הגדרת כל ה-Routes
+│ ├── main.tsx # נקודת הכניסה לאפליקציה
+│ └── index.css
+│
+├── package.json
+└── vite.config.ts
 ```
